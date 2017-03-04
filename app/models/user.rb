@@ -7,6 +7,7 @@ class User < ApplicationRecord
 
 
   def self.from_omniauth(auth, current_user)
+  	binding.pry
   	if auth.provider == "facebook"
   		graph = Koala::Facebook::API.new(auth.credentials.token)
 			facebook_data = graph.get_object("me",  {fields: ['id', 'name','email', 'first_name', 'last_name', 'friends', 'name_format', 'birthday']})
