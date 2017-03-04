@@ -35,6 +35,11 @@ gem 'devise'
 
 gem 'clarifai_ruby'
 
+gem 'koala'
+gem 'omniauth'
+gem 'omniauth-oauth2'
+gem 'omniauth-facebook'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
