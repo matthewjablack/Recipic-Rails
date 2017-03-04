@@ -5,6 +5,21 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :omniauthable,:validatable, :registerable
 
 
+	has_many :authorizations, dependent: :destroy
+
+
+	before_save :full_name
+
+
+	def full_name
+    if !self.first_name.nil? && !self.last_name.nil?
+      if self.full_name != (self.first_name + " " + self.last_name)
+        self.update_attribute(:full_name, self.first_name + " " + self.last_name)
+      end
+    end
+  end
+
+
 
   def self.from_omniauth(auth, current_user)
   	binding.pry
