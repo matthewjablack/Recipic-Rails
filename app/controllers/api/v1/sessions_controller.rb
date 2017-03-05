@@ -10,17 +10,10 @@ class Api::V1::SessionsController < Devise::SessionsController
     if User.where(email: @email).count > 0
       @user = User.where(email: @email).first
       if @user.valid_password?(params[:user][:password])
-        if @user.organizations.count == 0
-          render :status => 200,
-               :json => { :success => true,
-                          :info => "Logged in, need to choose organization",
-                          :data => { :auth_token => @user.authentication_token, :avatar => @user.avatar_url(:small), :name => @user.name } }
-        else
-          render :status => 200,
+        render :status => 200,
                :json => { :success => true,
                           :info => "Logged in",
-                          :data => { :auth_token => @user.authentication_token, :organization_id => @user.organizations.first.id, :avatar => @user.avatar_url(:small), :name => @user.name } }
-        end
+                          :data => { :auth_token => @user.authentication_token} }
       else
         render :status => 401,
            :json => { :success => false,

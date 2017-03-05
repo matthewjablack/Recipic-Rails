@@ -1,8 +1,8 @@
-class Api::V1::ItemsController < ApplicationController
+class Api::V1::RecipesController < ApplicationController
   skip_before_filter :verify_authenticity_token,
                      :if => Proc.new { |c| c.request.format == 'application/json' }
 
-	before_filter :check_authentication
+  before_filter :check_authentication
 
   # include Serializers::V1::ItemsSerializer
 
@@ -12,20 +12,21 @@ class Api::V1::ItemsController < ApplicationController
   respond_to :json
 
   def index
-  	if params[:term]
-  		@items = Item.where("lower(name) LIKE lower(?)", "%#{params[:term]}%")
-  	else
-  		@items = Item.all.page(params[:page]).per(params[:page_limit])
-  	end
-    
+    if params[:term]
+      @recipes = Recipe.where("lower(name) LIKE lower(?)", "%#{params[:term]}%").page(params[:page]).per(params[:page_limit])
+    else
+      @recipes = Recipe.all.page(params[:page]).per(params[:page_limit])
+    end
     render :status => 200,
-           :json => { :items => @items }
+               :json => { :success => true,
+                          :info => "Received recipes",
+                          :data => {recipes: @recipes} }
   end
-
 
   private
 
-	  def check_authentication
+
+    def check_authentication
        if User.where(authentication_token: params[:auth_token]).count == 1
         @user = User.where(authentication_token: params[:auth_token]).first
        else

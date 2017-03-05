@@ -245,6 +245,8 @@ Devise.setup do |config|
   config.sign_out_via = :delete
   config.omniauth :facebook, "255070808284113", "e5ac7394687b6ccd098eb9cc55a88599", { :scope => 'email, user_about_me, user_birthday, user_friends, user_likes'}
 
+  config.secret_key = '230a4827bf0540fcd8f44c6baf003dc5eb096f8be65f1bccef5f9774d969b56e1790080e73b7e725805a15400511a5997897f54dcb7d053944bcab47efc795b8'
+
   # ==> OmniAuth
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.

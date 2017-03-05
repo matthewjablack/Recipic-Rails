@@ -52,6 +52,13 @@ gem 'capistrano-passenger', '~> 0.2.0'
 gem 'capistrano-rbenv', '~> 2.1'
 # gem 'capistrano-rvm'
 
+gem "font-awesome-rails"
+
+gem "wysiwyg-rails"
+ 
+gem "kaminari"
+
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
