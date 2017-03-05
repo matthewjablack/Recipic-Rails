@@ -11,8 +11,26 @@ class Api::V1::ImagesController < ApplicationController
 
   respond_to :json
 
+
+
   def photo_identify
-    tag_response = ClarifaiRuby::TagRequest.new.get("https://samples.clarifai.com/metro-north.jpg")
+    conn = Faraday.new(:url => 'https://api.clarifai.com') do |faraday|
+      faraday.request  :url_encoded             # form-encode POST params
+      faraday.response :logger                  # log requests to STDOUT
+      faraday.adapter  Faraday.default_adapter  # make requests with Net::HTTP
+    end
+
+    # topicString = "/topics/" + @organization.url
+
+
+    response = conn.post do |req|
+      req.url '/v2/models/bd367be194cf45149e75f01d59f77ba7/outputs'
+      req.headers['Accept'] = 'application/json'
+      req.headers['Content-Type'] = 'application/json'
+      req.headers['Authorization'] = 'Bearer neAwUiUHss06ZPAxpcEyoTZrkOWiU4'
+
+      req.body = '{"inputs": [{"data": {"image": {"url": "https://samples.clarifai.com/food.jpg"}}}]}'
+    end
   end
 
   private
