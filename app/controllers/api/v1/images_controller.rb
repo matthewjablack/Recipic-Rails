@@ -13,7 +13,15 @@ class Api::V1::ImagesController < ApplicationController
 
 
 
+
   def photo_identify
+    #binding.pry
+
+    @image = Image.new(image: decode_base64_image(params[:image]))
+    @image.save!
+
+    #binding.pry
+
     conn = Faraday.new(:url => 'https://api.clarifai.com') do |faraday|
       faraday.request  :url_encoded             # form-encode POST params
       faraday.response :logger                  # log requests to STDOUT
@@ -29,8 +37,18 @@ class Api::V1::ImagesController < ApplicationController
       req.headers['Content-Type'] = 'application/json'
       req.headers['Authorization'] = 'Bearer neAwUiUHss06ZPAxpcEyoTZrkOWiU4'
 
-      req.body = '{"inputs": [{"data": {"image": {"url": "https://samples.clarifai.com/food.jpg"}}}]}'
+      #req.body = '{"inputs": [{"data": {"image": {"url":"http://recipic.net'+ @image.image_url + '"}}}]}'
+      req.body = '{"inputs": [{"data": {"image": {"url":"http://www.jqueryscript.net/images/Simplest-Responsive-jQuery-Image-Lightbox-Plugin-simple-lightbox.jpg"}}}]}'
+
     end
+    binding.pry
+    json = JSON.parse(response.body.to_s)
+
+    render :status => 200,
+           :json => { :success => true,
+                      :info => "Success",
+                      :data => {:image_id => @image.id, :response => serialize_items( json["outputs"][0]["data"]["concepts"])} }
+
   end
 
   private
@@ -46,6 +64,24 @@ class Api::V1::ImagesController < ApplicationController
                           :data => {} }
        end
 
+   end
+   def decode_base64_image(encoded_file)
+
+       decoded_file = Base64.decode64(encoded_file)
+
+       file = Tempfile.new(['image','.jpg'])
+       file.binmode
+       file.write decoded_file
+       return file
+   end
+
+
+   def serialize_items(items)
+     items.map do |item|
+       {
+         name: item["name"]
+       }
+     end
    end
 
 end
