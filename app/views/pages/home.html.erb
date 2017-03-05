@@ -14,24 +14,16 @@
 			      </tr>
 			    </thead>
 			    <tbody>
-
 						<% @recipes.each do |recipe| %>
-						<tr>
-			        <td><%= recipe.name %></td>
-							<td><%= recipe.description %></td>
-			        <td><%= rand(50..300) %> coins</td>
-		      	</tr>
+							<%= link_to recipe_path(recipe) do %>
+								<tr>
+					        <td><%= recipe.name %></td>
+									<td><%= recipe.description %></td>
+					        <td><%= rand(50..300) %> coins</td>
+									<td><%= link_to "View", recipe_path(recipe), class:"btn btn-success", role:"button" %></td>
+				      	</tr>
+							<% end %>
 						<% end %>
-			      <!-- <tr>
-			        <td>Pizza</td>
-			        <td>Old but gold</td>
-			        <td>50 coins</td>
-			      </tr>
-			      <tr>
-			        <td>Nachos</td>
-			        <td>A zesty bowl of nachos with killer sauce</td>
-			        <td>75 coins</td>
-			      </tr> -->
 			    </tbody>
 			  </table>
 			</div>
