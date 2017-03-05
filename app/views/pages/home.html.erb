@@ -1,6 +1,49 @@
 
 <% if user_signed_in? %>
-	
+
+	<div class="container">
+		<div class="col-md-8 col-sm-12">
+		  <h2>Latest Recipes</h2>
+			<div class="table-responsive">
+			  <table class="table table-hover">
+			    <thead>
+			      <tr>
+			        <th>Name</th>
+			        <th>Description</th>
+			        <th>Price</th>
+			      </tr>
+			    </thead>
+			    <tbody>
+
+						<% @recipes.each do |recipe| %>
+						<tr>
+			        <td><%= recipe.name %></td>
+							<td><%= recipe.description %></td>
+			        <td><%= rand(50..300) %> coins</td>
+		      	</tr>
+						<% end %>
+			      <!-- <tr>
+			        <td>Pizza</td>
+			        <td>Old but gold</td>
+			        <td>50 coins</td>
+			      </tr>
+			      <tr>
+			        <td>Nachos</td>
+			        <td>A zesty bowl of nachos with killer sauce</td>
+			        <td>75 coins</td>
+			      </tr> -->
+			    </tbody>
+			  </table>
+			</div>
+		</div>
+
+		<div class="col-md-4 col-sm-12">
+			<p>ok2</p>
+		</div>
+	</div>
+
+
+
 
 
 <% else %>
