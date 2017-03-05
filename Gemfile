@@ -34,7 +34,8 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 gem 'devise'
 
-gem 'clarifai_ruby'
+gem 'faraday', '~> 0.9.2'
+
 
 gem 'koala'
 gem 'omniauth'
