@@ -1,2 +1,24 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "font-awesome";
+@import "froala_editor.min.css";
+@import "froala_style.min.css";
+
+
+.background-grocery {
+	width:100%;
+	height:400px;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	margin-top:-72px;
+}
+
+.grocery-overlay {
+	width:100%;
+	position:absolute;
+	top:50px;
+	height:400px;
+	background-color: rgba(0,0,0, 0.5)
+}

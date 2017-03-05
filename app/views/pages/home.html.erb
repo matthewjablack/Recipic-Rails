@@ -1,5 +1,12 @@
-<h1>home page</h1>
 
 <% if user_signed_in? %>
-	<p>signed in</p>
+	
+
+
+<% else %>
+
+	<div class="background-grocery" style="background: url('/grocery_background.jpg') no-repeat center center fixed;"></div>
+
+	<div class="grocery-overlay"></div>
+
 <% end %>
