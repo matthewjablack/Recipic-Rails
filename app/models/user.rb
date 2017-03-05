@@ -8,21 +8,17 @@ class User < ApplicationRecord
 	has_many :authorizations, dependent: :destroy
 
 
-	before_save :full_name
+	before_save :ensure_authentication_token
 
 
-	def full_name
-    if !self.first_name.nil? && !self.last_name.nil?
-      if self.full_name != (self.first_name + " " + self.last_name)
-        self.update_attribute(:full_name, self.first_name + " " + self.last_name)
-      end
-    end
+
+  def ensure_authentication_token
+    self.authentication_token ||= generate_authentication_token
   end
 
 
 
   def self.from_omniauth(auth, current_user)
-  	binding.pry
   	if auth.provider == "facebook"
   		graph = Koala::Facebook::API.new(auth.credentials.token)
 			facebook_data = graph.get_object("me",  {fields: ['id', 'name','email', 'first_name', 'last_name', 'friends', 'name_format', 'birthday']})

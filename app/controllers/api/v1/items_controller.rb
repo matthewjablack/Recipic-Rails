@@ -1,8 +1,8 @@
-class Api::V1::ImagesController < ApplicationController
+class Api::V1::ItemsController < ApplicationController
   skip_before_filter :verify_authenticity_token,
                      :if => Proc.new { |c| c.request.format == 'application/json' }
 
-  before_filter :check_authentication
+	before_filter :check_authentication
 
   # include Serializers::V1::ItemsSerializer
 
@@ -11,14 +11,16 @@ class Api::V1::ImagesController < ApplicationController
 
   respond_to :json
 
-  def photo_identify
-    tag_response = ClarifaiRuby::TagRequest.new.get("https://samples.clarifai.com/metro-north.jpg")
+  def search
+    @items = Item.where("lower(name) LIKE lower(?)", "%#{params[:term]}%")
+    render :status => 200,
+           :json => { :items => @items }
   end
+
 
   private
 
-
-    def check_authentication
+	  def check_authentication
        if User.where(authentication_token: params[:auth_token]).count == 1
         @user = User.where(authentication_token: params[:auth_token]).first
        else

@@ -1,0 +1,14 @@
+<%= form_for(@user) do |f| %>
+								
+	<label>First Name</label>
+	<%= f.text_field :first_name, class: 'form-control' %>
+	<br>
+	<label>Last Name</label>
+	<%= f.text_field :last_name, class: 'form-control' %>
+	<br>
+	<label>Email</label>
+	<%= f.text_field :email, class: 'form-control' %>
+
+	<%= f.submit "Update Settings", class: "btn btn-primary" %>
+
+<% end %>

@@ -16,7 +16,6 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
 	# end
 
 	def self.provides_callback_for(provider)
-		binding.pry
 		class_eval %Q{
 			def #{provider}
 				p env["omniauth.auth"]
