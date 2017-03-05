@@ -82,7 +82,8 @@ class Api::V1::ImagesController < ApplicationController
    def serialize_items(items)
      items.map do |item|
        {
-         name: item["name"]
+         name: item["name"],
+         value: item["value"]
        }
      end
    end
