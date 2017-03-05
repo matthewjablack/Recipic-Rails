@@ -41,7 +41,6 @@ class Api::V1::ImagesController < ApplicationController
       #req.body = '{"inputs": [{"data": {"image": {"url":"http://www.jqueryscript.net/images/Simplest-Responsive-jQuery-Image-Lightbox-Plugin-simple-lightbox.jpg"}}}]}'
 
     end
-    binding.pry
     json = JSON.parse(response.body.to_s)
 
     render :status => 200,
