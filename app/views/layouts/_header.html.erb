@@ -18,8 +18,14 @@
                   <option value="0">Search Recipes</option>
               </select>
             </form>
-            
+
+
           </ul>
+          
+          <% if user_signed_in? %>
+            <%= link_to "Create Recipe", new_recipe_path, class:"btn btn-success", role:"button" %>
+          <% end %>
+
           <ul class="nav navbar-nav navbar-right">
             <% if user_signed_in? %>
               <li class="dropdown">
@@ -36,7 +42,7 @@
               <li><%= link_to "Sign Up", new_user_registration_path %></li>
 
             <% end %>
-            
+
           </ul>
         </div><!--/.nav-collapse -->
       </div>
