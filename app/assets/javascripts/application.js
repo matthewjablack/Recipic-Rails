@@ -19,6 +19,9 @@
 
 
 $(document).ready(function() {
+
+  $('.wysiwyg').froalaEditor();
+
 	$(".js-example-data-ajax").select2({
       width: '100%',
       placeholder: "Search Recipes",
@@ -69,5 +72,8 @@ $(document).ready(function() {
         return key.text;
       }
     }
+
+
+
 });
 

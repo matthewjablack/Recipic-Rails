@@ -1,6 +1,9 @@
 
+<div class="col-md-6 col-md-offset-3">
 
 <%= form_for(@recipe) do |f| %>
+
+	<h2>Create new Recipe</h2>
 								
 	<label>Name</label>
 	<%= f.text_field :name, class: 'form-control' %>
@@ -8,8 +11,14 @@
 	<label>Description</label>
 	<%= f.text_field :description, class: 'form-control' %>
 	<br>
+	<label>Body</label>
+	<%= f.text_area :body, class: 'form-control wysiwyg' %>
+	<br>
+
 
 
 	<%= f.submit "Create Recipe", class: "btn btn-primary" %>
 
 <% end %>
+
+</div>
