@@ -7,7 +7,11 @@
 
 # server "example.com", user: "deploy", roles: %w{app db web}, my_property: :my_value
 # server "example.com", user: "deploy", roles: %w{app web}, other_property: :other_value
-server "159.203.13.230", user: "deploy", roles: %w{db}
+
+
+server "159.203.13.230", user: 'deploy', roles: [:app, :web], :primary => true
+
+set :stage, :production
 
 
 
