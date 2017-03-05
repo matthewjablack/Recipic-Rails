@@ -43,6 +43,8 @@ class Api::V1::ImagesController < ApplicationController
     end
     json = JSON.parse(response.body.to_s)
 
+    Rails.logger.info "http://recipic.net" + @image.image_url
+
     Rails.logger.info "Serialize DATA: " + json["outputs"][0]["data"]["concepts"].to_s
 
     render :status => 200,
