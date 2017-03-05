@@ -7,7 +7,7 @@
 
 .background-grocery {
 	width:100%;
-	height:600px;
+	height:800px;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
@@ -19,7 +19,7 @@
 	width:100%;
 	position:absolute;
 	top:50px;
-	height:600px;
+	height:800px;
 	background-color: rgba(0,0,0, 0.5)
 }
 
@@ -31,11 +31,21 @@
 		color:white;
 	}
 
-	margin-top: 100px;
+	margin-top: 250px;
 	text-align:center;
 	color:white;
 }
 
 .btn-create-recipe {
 	margin-top:8px;
+}
+
+.coinage {
+	margin-top:-5px;
+}
+.coinages {
+	color:white;
+	display:inline-block;
+	margin-top:12px;
+	font-size:17px;
 }
