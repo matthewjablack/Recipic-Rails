@@ -11,7 +11,6 @@ Rails.application.routes.draw do
       post 'images/photo_identify' => 'images#photo_identify', as: 'photo_identify'
       get 'items' => 'items#index', as: 'items_search'
       get 'recipes' => 'items#index', as: 'recipe_search'
-			post 'photo_identify' => 'images#photo_identify'
 			
 
     end
