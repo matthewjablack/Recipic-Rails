@@ -31,8 +31,6 @@ class Api::V1::ImagesController < ApplicationController
 
       req.body = '{"inputs": [{"data": {"image": {"url": "https://samples.clarifai.com/food.jpg"}}}]}'
     end
-
-    binding.pry
   end
 
   private
