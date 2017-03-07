@@ -35,7 +35,7 @@ class Api::V1::ImagesController < ApplicationController
       req.url '/v2/models/bd367be194cf45149e75f01d59f77ba7/outputs'
       req.headers['Accept'] = 'application/json'
       req.headers['Content-Type'] = 'application/json'
-      req.headers['Authorization'] = 'Bearer neAwUiUHss06ZPAxpcEyoTZrkOWiU4'
+      req.headers['Authorization'] = 'Bearer BUBTeOLPZpXEqN5qJHX3DP9M1qcUxp'
 
       req.body = '{"inputs": [{"data": {"image": {"url":"http://recipic.net'+ @image.image_url + '"}}}]}'
       #req.body = '{"inputs": [{"data": {"image": {"url":"http://www.jqueryscript.net/images/Simplest-Responsive-jQuery-Image-Lightbox-Plugin-simple-lightbox.jpg"}}}]}'
