@@ -14,7 +14,14 @@
 
 	<label>Items</label>
 	<!-- <input type="hidden" id="ajax-example" /> -->
-	<input class='form-control col-lg-5 itemSearch' type='text' />
+	<!-- <input class='form-control col-lg-5 itemSearch' type='text' /> -->
+
+	<!-- <form class="navbar-form" role="search"> -->
+	<select class="itemSearch form-control" multiple="multiple">
+		<option value="0">Search Keywords</option>
+	</select>
+	<!-- </form> -->
+
 
 	<br>
 
@@ -22,7 +29,7 @@
 	<%= f.text_area :body, class: 'form-control' %>
 	<br>
 
-
+	
 	<%= f.submit "Create Recipe", class: "btn btn-primary" %>
 
 <% end %>

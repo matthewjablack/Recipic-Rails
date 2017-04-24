@@ -17,9 +17,16 @@ class Api::V1::ItemsController < ApplicationController
   	else
   		@items = Item.all.page(params[:page]).per(params[:page_limit])
   	end
-    
-    render :status => 200,
+
+    if @items.count == 0
+      render :status => 200,
+           :json => { :items => [{id: 0, name: params[:term]}] }
+    else
+      render :status => 200,
            :json => { :items => @items }
+    end
+    
+    
   end
 
 
