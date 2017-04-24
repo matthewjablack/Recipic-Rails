@@ -23,6 +23,22 @@ class Api::V1::RecipesController < ApplicationController
                           :data => {recipes: @recipes} }
   end
 
+
+  def search 
+    if params[:items]
+      params[:items].each do |item|
+        if (Item.where(name: item).count == 0) {
+          Item.create(name: item)
+        } else {
+          
+        }
+      end
+    else
+
+    end
+
+  end
+
   private
 
 
