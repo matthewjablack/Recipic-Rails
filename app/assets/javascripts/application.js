@@ -22,6 +22,60 @@ $(document).ready(function() {
 
   $('.wysiwyg').froalaEditor();
 
+  $(".itemSearch").select2({
+      tags: true,
+      multiple: true,
+      tokenSeparators: [',', ' '],
+      minimumInputLength: 2,
+      minimumResultsForSearch: 10,
+      ajax: {
+          url: "/api/v1/items?auth_token=XP9CPE4eEPJW3s2sb89f",
+          dataType: "json",
+          type: "GET",
+          data: function (params) {
+
+              var queryParameters = {
+                  term: params.term
+              }
+              return queryParameters;
+          },
+          processResults: function (data) {
+              return {
+                  results: $.map(data, function (item) {
+                      return {
+                          text: item.tag_value,
+                          id: item.tag_id
+                      }
+                  })
+              };
+          }
+      }
+  });
+
+  //
+  // $(".itemSearch").select2({
+  //     tags: true,
+  //     multiple: true,
+  //     tokenSeparators: [',', ' '],
+  //     minimumInputLength: 2,
+  //     minimumResultsForSearch: 10,
+  //     ajax: {
+  //         url: "/api/v1/items?auth_token=XP9CPE4eEPJW3s2sb89f",
+  //         dataType: "json",
+  //         type: "GET",
+  //         results: function(data, page) {
+  //         return {
+  //           results: $.map( data, function(person, i) {
+  //             return { id: item.id, text: item.name }
+  //           } )
+  //         }
+  //       }
+  //       }
+  //     }
+  // });
+
+
+
 	$(".js-example-data-ajax").select2({
       width: '100%',
       placeholder: "Search Recipes",
@@ -76,4 +130,3 @@ $(document).ready(function() {
 
 
 });
-
