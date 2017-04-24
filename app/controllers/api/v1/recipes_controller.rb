@@ -28,11 +28,11 @@ class Api::V1::RecipesController < ApplicationController
     if params[:items]
       params[:items].each do |item|
         items = []
-        if (Item.where(name: item).count == 0) {
+        if (Item.where(name: item).count == 0)
           Item.create(name: item)
-        } else {
+        else
           items << Item.find_by_name(item)
-        }
+        end
         render :status => 200,
                :json => { :success => true,
                           :info => "Received recipes",
