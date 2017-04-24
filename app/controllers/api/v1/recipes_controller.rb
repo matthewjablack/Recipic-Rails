@@ -26,18 +26,19 @@ class Api::V1::RecipesController < ApplicationController
 
   def search 
     if params[:items]
+      items = []
       params[:items].each do |item|
-        items = []
+        
         if (Item.where(name: item).count == 0)
           Item.create(name: item)
         else
           items << Item.find_by_name(item)
         end
-        render :status => 200,
+      end
+      render :status => 200,
                :json => { :success => true,
                           :info => "Received recipes",
                           :data => {recipes: Recipe.with_items(items)} }
-      end
     else
       render :status => 200,
                :json => { :success => false,
