@@ -11,10 +11,16 @@
 	<label>Description</label>
 	<%= f.text_field :description, class: 'form-control' %>
 	<br>
+
+	<label>Items</label>
+	<!-- <input type="hidden" id="ajax-example" /> -->
+	<input class='form-control col-lg-5 itemSearch' type='text' />
+
+	<br>
+
 	<label>Body</label>
 	<%= f.text_area :body, class: 'form-control' %>
 	<br>
-
 
 
 	<%= f.submit "Create Recipe", class: "btn btn-primary" %>
