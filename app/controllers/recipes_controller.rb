@@ -9,6 +9,7 @@ class RecipesController < ApplicationController
 	end
 
 	def create
+		binding.pry
 		@recipe = Recipe.new(recipe_params)
 		if @recipe.save
 
@@ -31,7 +32,7 @@ class RecipesController < ApplicationController
 
 
 		def recipe_params
-			params.require(:recipe).permit(:name, :description, :body, :user_id)
+			params.require(:recipe).permit(:name, :description, :body, :user_id, )
 		end
 
 

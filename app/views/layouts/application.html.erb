@@ -20,7 +20,7 @@
     <script src="/site.js"></script>
   </head>
 
-  <body>
+  <body class="<%= user_signed_in? ? current_user.authentication_token : "" %>">
 
 	<%= render 'layouts/header' %>
 

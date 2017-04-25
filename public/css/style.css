@@ -616,3 +616,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#779936', end
 #footer a:hover {
 	color: #333;
 }
+
+.form-control {
+	max-height:35px;
+}

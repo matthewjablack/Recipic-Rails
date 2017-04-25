@@ -36,6 +36,9 @@ gem 'devise'
 
 gem 'faraday', '~> 0.9.2'
 
+# gem 'activeadmin', github: 'tjgrathwell/activeadmin', branch: 'rails5'
+
+
 
 gem 'koala'
 gem 'omniauth'
