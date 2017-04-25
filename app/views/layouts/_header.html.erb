@@ -21,16 +21,16 @@
 
 
           </ul>
-          
+
           <% if user_signed_in? %>
             <%= link_to "Create Recipe", new_recipe_path, class:"btn btn-success btn-create-recipe", role:"button" %>
           <% end %>
 
           <ul class="nav navbar-nav navbar-right">
-            
+
 
             <% if user_signed_in? %>
-              <span class="coinages">8000</span>
+              <span class="coinages"></span>
               <img src="/coin.png" alt="" width="25" class="coinage">
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user.first_name %> <span class="caret"></span></a>
@@ -47,7 +47,7 @@
 
             <% end %>
 
-            
+
 
           </ul>
         </div><!--/.nav-collapse -->

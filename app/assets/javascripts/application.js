@@ -18,9 +18,20 @@
 
 
 
+
+
 $(document).ready(function() {
 
   $('.wysiwyg').froalaEditor();
+
+  var coinamount = 8000;
+
+  $('.coinages').html(coinamount);
+
+  $('.coinbutton').click(function() {
+    coinamount -= 100;
+    $('.coinages').html(coinamount);
+  })
 
   $(".itemSearch").select2({
       tags: true,
