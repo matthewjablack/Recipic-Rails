@@ -24,7 +24,6 @@ $(document).ready(function() {
 
   $('.wysiwyg').froalaEditor();
 
-<<<<<<< HEAD
   var coinamount = 8000;
 
   $('.coinages').html(coinamount);
@@ -33,10 +32,8 @@ $(document).ready(function() {
     coinamount -= 100;
     $('.coinages').html(coinamount);
   })
-=======
 
   var api_key = $('body').attr('class');
->>>>>>> 40ddebae75f8ede3228eef8b64ce9afe8aa56f33
 
   $(".itemSearch").select2({
       tags: true,
@@ -122,7 +119,7 @@ $(document).ready(function() {
   //   }else {
   //     return key.text;
   //   }
-    
+
   // }
 
 
